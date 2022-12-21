@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  titulo!: string;
+  presupuesto!: number;
+  gastos!: number;
+  balance!: number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.titulo = 'Totales';
+    this.obtener_gastos();
+    this.obtener_presupuesto();
+    this.calcular_balance();
+  }
+
+  obtener_gastos(){
+    // TODO
+    this.gastos = 0; 
+  }
+
+  obtener_presupuesto(){
+    // TODO
+    this.presupuesto = 0;
+  }
+
+  calcular_balance(){
+    this.balance = this.presupuesto - this.gastos;
   }
 
 }

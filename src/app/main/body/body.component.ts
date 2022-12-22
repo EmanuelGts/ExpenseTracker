@@ -20,6 +20,7 @@ export class BodyComponent implements OnInit , DoCheck {
 
   ngDoCheck(){
    var budget = Number(JSON.parse(localStorage.getItem('Budget') as string));
+  //var budget =  JSON.parse(localStorage.getItem('Budget') as string);
     if(budget == 0){
       this.mountSave = true;
       console.log("ngDoCheck true " + budget);

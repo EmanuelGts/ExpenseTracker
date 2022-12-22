@@ -2,23 +2,35 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material.module";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule, Routes } from "@angular/router";
+
 
 import { FooterComponent } from './main/footer/footer.component';
 import { BodyComponent } from './main/body/body.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './main/login/login.component';
+import { SiteComponent } from './main/site/site.component';
 //import { MatMenu } from '@angular/material/menu';
 
+const routes: Routes = [
+  { path: "", component: LoginComponent },
+  { path: "expense-tracker", component: SiteComponent }
+  //{ path: "detalle/:id", component: DetalleComponent },
+  //{ path: "hero", component: HeroComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
 
     FooterComponent,
-    BodyComponent
+    BodyComponent,
+    LoginComponent,
+    SiteComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +39,9 @@ import { MatIconModule } from '@angular/material/icon';
     MaterialModule ,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes, { enableTracing: true })
   ],
   providers: [],
   bootstrap: [AppComponent]

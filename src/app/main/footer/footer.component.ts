@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit , DoCheck  {
 
   titulo!: string;
   presupuesto!: number;
@@ -20,6 +20,9 @@ export class FooterComponent implements OnInit {
     this.obtener_presupuesto();
     this.calcular_balance();
   }
+  ngDoCheck(){
+      this.presupuesto = Number(JSON.parse(localStorage.getItem('Budget') as string));
+   }
 
   obtener_gastos(){
     // TODO
@@ -28,7 +31,8 @@ export class FooterComponent implements OnInit {
 
   obtener_presupuesto(){
     // TODO
-    this.presupuesto = 0;
+    this.presupuesto = Number(JSON.parse(localStorage.getItem('Budget') as string));
+
   }
 
   calcular_balance(){

@@ -1,13 +1,19 @@
-<span class="titleBodyApp">
-<h1>Aplicación de Presupuestos</h1>
-</span>
-<mat-form-field class="form-field">
-    <mat-label>Defina el presupuesto Inicial</mat-label>
-    <input #mount matInput type="text" [(ngModel)]="mountBudget">
+
+    <span class="titleBodyApp">
+        <h1>Aplicación de Presupuestos</h1>
+    </span>
+    <div class="card-container" *ngIf="mountSave">
+        <mat-form-field class="form-field"  >
+        <mat-label>Defina el presupuesto Inicial</mat-label>
+            <input #mount matInput type="text" [(ngModel)]="mountBudget" placeholder="Monto Requerido">
+        
+            <button class=""  matSuffix mat-icon-button aria-label="Clear" (click)="saveBudget(mountBudget)">
+             Guardar
+            </button>
     
-        <button class="" *ngIf="mountBudget" matSuffix mat-icon-button aria-label="Clear" (click)="saveBudget()">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="Save">Guardar</mat-icon>
-        </button>
-   
-</mat-form-field>
-  
+        </mat-form-field>
+  </div>
+
+  <!-- 
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="Save">Guardar</mat-icon>
+  -->

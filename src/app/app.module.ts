@@ -10,8 +10,7 @@ import { FooterComponent } from './main/footer/footer.component';
 import { BodyComponent } from './main/body/body.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-//import { MatMenu } from '@angular/material/menu';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     MaterialModule ,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ExpenseTraker';
+
+  ResetBudget():void {
+    localStorage.setItem("Budget","0");
+  }
 }

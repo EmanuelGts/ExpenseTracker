@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
+  mountBudget = '0';
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+saveBudget(startMount?: string):void {
+    var saveBudgetLocalStorege = "startMount";
+    this.mountBudget = saveBudgetLocalStorege;
+  }
 }

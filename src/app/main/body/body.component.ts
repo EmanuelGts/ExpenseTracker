@@ -51,13 +51,23 @@ saveBudget(startMount: string):void {
 
   }
 
+  delete(buddget: Budget){
+    this.selectedBudget = buddget;
+    this.budgetArray = this.budgetArray.filter(x => x != this.selectedBudget);
+    this.selectedBudget = new Budget;
+  }
+
+  OpenOrEdit(buddget: Budget){
+    this.selectedBudget = buddget;
+  }
+
   AddOrEdit(){
-    // localStorage.setItem("Gastos",this.budgetArray);
+    if (this.selectedBudget.id === 0) {
+
     this.selectedBudget.id = this.budgetArray.length + 1;
     this.budgetArray.push(this.selectedBudget);
-    console.log("Inicia el metodo");
-    console.log( JSON.stringify(this.selectedBudget));
 
+    }
     this.selectedBudget = new Budget();
     
   }

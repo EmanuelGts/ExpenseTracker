@@ -1,5 +1,5 @@
 export class Budget {
-    id !: number;
+    id : number = 0;
     name !: string;
     category !: string;
     amount !: number;

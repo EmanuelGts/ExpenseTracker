@@ -37,27 +37,31 @@
 </ng-container> -->
 
 <div>
-  <h1>NgFor Table Example</h1>
+  <h1 style="padding:30px 0 0 30px;color:rgb(175, 30, 177);text-align: left;">Tabla de gastos</h1>
   <table>
       <thead>
           <tr>
-              <th>#</th>
-              <th>Descripción</th>
-              <th>Categoria</th>
-              <th>Monto</th>
+              <th style="padding: 30px;">#</th>
+              <th style="padding: 30px;">Descripción</th>
+              <th style="padding: 30px;">Categoria</th>
+              <th style="padding: 30px;">Monto</th>
           </tr>
       </thead>
       <tbody>
           <tr *ngFor="let item of budgetArray">
-              <th style="">{{ item.id }}</th>
+              <th>{{ item.id }}</th>
               <td>{{ item.name }}</td>
               <td>{{ item.category }}</td>
               <td>{{ item.amount }}</td>
               <td>
-                <button type="button" >Editar</button>
+                <button mat-raised-button color="primary" (click)="OpenOrEdit(item)">
+                  Editar
+                </button>
             </td>
               <td>
-                  <button type="button" >Delete</button>
+                <button mat-raised-button color="warn" (click)="delete(item)">
+                  Elminar
+                </button>
               </td>
           </tr>
       </tbody>

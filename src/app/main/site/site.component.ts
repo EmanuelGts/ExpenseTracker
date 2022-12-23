@@ -11,5 +11,4 @@ export class SiteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

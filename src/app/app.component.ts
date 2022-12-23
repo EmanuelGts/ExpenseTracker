@@ -10,5 +10,6 @@ export class AppComponent {
 
   ResetBudget():void {
     localStorage.setItem("Budget","0");
+    localStorage.setItem("gastos","0");
   }
 }

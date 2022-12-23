@@ -17,11 +17,11 @@
     <input matInput type="text" [(ngModel)]="selectedBudget.name" placeholder="Ingrese una Drescripción">
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="example-full-width">
-    <input matInput type="text" [(ngModel)]="selectedBudget.category" placeholder="Ingrese una Categoria">
+  <mat-form-field appearance="fill" class="example-full-width" [ngStyle]="{'margin-left': '10px'}">
+    <input matInput type="text" [(ngModel)]="selectedBudget.category" placeholder="Ingrese una Categoría">
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="example-full-width">
+  <mat-form-field appearance="fill" class="example-full-width" [ngStyle]="{'margin-left': '10px'}">
     <input matInput type="text" [(ngModel)]="selectedBudget.amount" placeholder="Ingrese un monto">
   </mat-form-field>
 
@@ -36,7 +36,7 @@
   <td mat-cell>{{Budget.name}</td>
 </ng-container> -->
 
-<div>
+<div id="content" name="content" #content>
   <h1 style="padding:30px 0 0 30px;color:rgb(175, 30, 177);text-align: left;">Tabla de gastos</h1>
   <table>
       <thead>
@@ -52,13 +52,13 @@
               <th>{{ item.id }}</th>
               <td>{{ item.name }}</td>
               <td>{{ item.category }}</td>
-              <td>{{ item.amount }}</td>
-              <td>
-                <button mat-raised-button color="primary" (click)="OpenOrEdit(item)">
-                  Editar
-                </button>
-            </td>
-              <td>
+              <td>{{ item.amount | currency}}</td>
+              <td *ngIf="botonesVisible">
+                  <button mat-raised-button color="primary" (click)="OpenOrEdit(item)">
+                    Editar
+                  </button>
+              </td>
+              <td *ngIf="botonesVisible">
                 <button mat-raised-button color="warn" (click)="delete(item)">
                   Elminar
                 </button>
@@ -68,6 +68,11 @@
   </table>
 </div>
 
+<div class="button-row">
+  <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#57ee6e', 'margin-top': '20px'}" (click)="descargar()">
+    Descargar pdf
+  </button>
+</div>
 
   <!-- <table mat-table *ngFor="let budget of budgetArray" class="mat-elevation-z8"> -->
 

@@ -1,4 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-footer',
@@ -27,7 +28,7 @@ export class FooterComponent implements OnInit , DoCheck  {
 
   obtener_gastos(){
     // TODO
-    this.gastos = 0; 
+    this.gastos = Number(JSON.parse(localStorage.getItem('gastos') as string)); 
   }
 
   obtener_presupuesto(){

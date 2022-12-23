@@ -22,6 +22,7 @@ export class FooterComponent implements OnInit , DoCheck  {
   }
   ngDoCheck(){
       this.presupuesto = Number(JSON.parse(localStorage.getItem('Budget') as string));
+      this.calcular_balance();
    }
 
   obtener_gastos(){

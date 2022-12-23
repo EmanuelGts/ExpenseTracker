@@ -1,16 +1,99 @@
+<span class="titleBodyApp">
+  <h1>Aplicación de Presupuestos</h1>
+</span>
+<div class="card-container" *ngIf="mountSave">
+  <mat-form-field class="form-field">
+    <mat-label>Defina el presupuesto Inicial</mat-label>
+    <input #mount matInput type="text" [(ngModel)]="mountBudget" placeholder="Monto Requerido">
 
-    <span class="titleBodyApp">
-        <h1>Aplicación de Presupuestos</h1>
-    </span>
-    <div class="card-container" *ngIf="mountSave">
-        <mat-form-field class="form-field"  >
-        <mat-label>Defina el presupuesto Inicial</mat-label>
-            <input #mount matInput type="text" [(ngModel)]="mountBudget" placeholder="Monto Requerido">
-        
-            <button class=""  matSuffix mat-icon-button aria-label="Clear" (click)="saveBudget(mountBudget)">
-             Guardar
-            </button>
-    
-   
-</mat-form-field>
-  
+    <button class="" matSuffix mat-icon-button aria-label="Clear" (click)="saveBudget(mountBudget)">
+      Guardar
+    </button>
+
+  </mat-form-field>
+</div>
+<mat-card>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <input matInput type="text" [(ngModel)]="selectedBudget.name" placeholder="Ingrese una Drescripción">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="example-full-width">
+    <input matInput type="text" [(ngModel)]="selectedBudget.category" placeholder="Ingrese una Categoria">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="example-full-width">
+    <input matInput type="text" [(ngModel)]="selectedBudget.amount" placeholder="Ingrese un monto">
+  </mat-form-field>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" [ngStyle]="{'background-color': '#57ee6e'}" (click)="AddOrEdit()">
+      Agregar
+    </button>
+  </div>
+
+<!-- <ng-container *ngFor="let Budget of budgetArray">
+  <th mat-header-cell *matHeaderCellDef></th>
+  <td mat-cell>{{Budget.name}</td>
+</ng-container> -->
+
+<div>
+  <h1>NgFor Table Example</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Descripción</th>
+              <th>Categoria</th>
+              <th>Monto</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of budgetArray">
+              <th style="">{{ item.id }}</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.category }}</td>
+              <td>{{ item.amount }}</td>
+              <td>
+                <button type="button" >Editar</button>
+            </td>
+              <td>
+                  <button type="button" >Delete</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+
+  <!-- <table mat-table *ngFor="let budget of budgetArray" class="mat-elevation-z8"> -->
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+    <!-- Position Column -->   
+    <!-- <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell > {{budget["id"]}} </td>
+    </ng-container> -->
+
+    <!-- Name Column -->
+    <!-- <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Drescripción </th>
+      <td mat-cell > {{budget.name}} </td>
+    </ng-container> -->
+
+    <!-- Weight Column -->
+    <!-- <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      <td mat-cell > {{budget.category}} </td>
+    </ng-container> -->
+
+    <!-- Symbol Column -->
+    <!-- <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Monto </th>
+      <td mat-cell > {{budget.amount}} </td>
+    </ng-container> -->
+
+    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card> -->
